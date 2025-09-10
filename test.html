@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Test</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-green: #2A401E;
+            --background-beige: #F5F0E4;
+            --text-dark: #333333;
+            --accent-yellow: #F2B705;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Lato', sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-body); }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- Header & Navigation --- */
+        .navbar {
+            background: #fff;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--background-beige);
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo img {
+            height: 58px;
+            display: block;
+        }
+        .navbar nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .navbar nav ul li {
+            margin-left: 20px;
+            position: relative; /* REQUIRED */
+        }
+        .navbar nav a {
+            text-decoration: none;
+            color: var(--primary-green);
+            font-weight: 700;
+            padding: 5px 10px;
+            white-space: nowrap;
+        }
+        .navbar nav a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        /* --- Dropdown Menu Styles --- */
+        .dropdown-menu {
+            display: none; /* HIDES dropdown by default */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            list-style: none;
+            padding: 10px 0;
+            margin-top: 5px;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            z-index: 100;
+        }
+        /* SHOWS the menu when you hover its parent */
+        li.dropdown:hover > .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu li {
+            margin: 0;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 8px 15px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <div style="width: 150px; height: 58px; background: #eee; text-align: center; line-height: 58px;">LOGO</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Production</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Products</a></li>
+                            <li><a href="#">Products Calendar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Health Benefits</a></li>
+                    <li><a href="#">Recipes</a></li>
+                    <li><a href="#">Location</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <h1 style="text-align: center; margin-top: 50px;">This is a test page.</h1>
+
+</body>
+</html>

@@ -1,0 +1,899 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-green: #2A401E;
+    --background-beige: #F5F0E4;
+    --text-dark: #333333;
+    --accent-yellow: #F2B705;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: #FFFFFF;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.5rem; color: var(--primary-green); }
+
+p {
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Header & Navigation --- */
+.navbar {
+    background: #fff;
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--background-beige);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 58px; /* Updated logo size */
+    display: block;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center; /* Vertically aligns nav items */
+}
+
+.navbar nav ul li {
+    margin-left: 20px;
+    position: relative; /* Required for the dropdown */
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: var(--primary-green);
+    font-weight: 700;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+    white-space: nowrap; /* Prevents links like "Contact Us" from wrapping */
+}
+
+.navbar nav a:hover {
+    color: var(--accent-yellow);
+}
+
+.navbar nav a.active {
+    color: var(--accent-yellow);
+    text-decoration: underline;
+}
+
+/* --- Dropdown Menu Styles --- */
+.dropdown-menu {
+    display: none; /* Hides dropdown by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    list-style: none;
+    padding: 10px 0;
+    margin-top: 5px;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+/* This is the rule that shows the menu on hover */
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 15px;
+    width: 100%;
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/farm-background.jpg') no-repeat center center/cover;
+    color: #fff;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* --- General Content Sections --- */
+.content-section {
+    padding: 60px 0;
+}
+
+.content-section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.bg-light {
+    background-color: var(--background-beige);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-green);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 992px) {
+    /* Basic responsive nav, can be improved with JS later */
+    .navbar .container {
+        flex-direction: column;
+    }
+    
+    .navbar nav {
+        margin-top: 15px;
+    }
+
+    .navbar nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 2rem; }
+}
+
+/* --- Homepage Specific Styles --- */
+
+/* --- Creative About Section --- */
+.about-layout {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-text {
+    max-width: 800px;
+}
+
+.lead-text {
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.feature-icons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2.5rem;
+    gap: 20px;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    color: var(--primary-green);
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    color: var(--primary-green);
+    font-size: 2.5rem; /* Makes all icons large */
+}
+
+.icon-item span {
+    margin-top: 0.5rem;
+    font-size: 1rem; /* Resets text to a normal, uniform size */
+}
+
+/* --- Product Intro Section --- */
+.product-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.product-card-intro {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden; /* Ensures the image corners are rounded */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card-intro img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-card-intro .card-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card-intro .card-content h3 {
+    margin-top: 0;
+}
+
+.product-card-intro .card-content p {
+    flex-grow: 1; /* Pushes the button to the bottom */
+}
+
+
+/* --- Reusable Button Style --- */
+.btn {
+    display: inline-block;
+    background-color: var(--accent-yellow);
+    color: var(--text-dark);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+
+/* --- Responsive adjustments for new sections --- */
+@media (max-width: 768px) {
+    .product-intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-icons {
+        flex-direction: column;
+    }
+}
+
+/* --- Homepage Info Grid (Recipes & Location) --- */
+
+.info-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates two equal columns */
+    gap: 30px; /* Space between the two containers */
+}
+
+.info-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.info-card h3 {
+    margin-top: 0;
+}
+
+.info-card p {
+    flex-grow: 1; /* Pushes content below it to the bottom */
+}
+
+.info-card .btn {
+    align-self: center; /* This will center the button */
+}
+
+/* Styling for the images in the info cards */
+.map-link img,
+.recipe-link img {
+    width: 70%; /* This makes both images the same size */
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block; /* Allows for centering */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* The hover effect now applies to both images */
+.map-link:hover img,
+.recipe-link:hover img {
+    transform: scale(1.03);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+/* The hover effect now applies to both images */
+.map-link:hover img,
+.recipe-link:hover img {
+    transform: scale(1.03);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+/* --- Responsive adjustments for the info grid --- */
+@media (max-width: 768px) {
+    .info-grid-layout {
+        grid-template-columns: 1fr; /* Stack the containers on mobile */
+    }
+}
+
+/* --- Products Page Specific Styles --- */
+
+.page-header {
+    background-color: var(--primary-green);
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    margin-bottom: 0.5rem;
+}
+
+/* This rule makes both columns equal width, guaranteeing the containers are the same size */
+.product-detail-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
+    align-items: center;
+}
+
+/* This rule reverses the visual order for the pepper section */
+.product-detail-layout.reverse-layout > .product-text {
+    order: 1; /* This pulls the text to the first (left) column */
+}
+.product-detail-layout.reverse-layout > .product-image {
+    order: 2; /* This pushes the image to the second (right) column */
+}
+
+
+/* This single rule styles BOTH images identically */
+.product-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.product-text h2 {
+    margin-top: 0;
+}
+
+.product-text h3 {
+    margin-top: 1.5rem;
+    border-bottom: 2px solid var(--background-beige);
+    padding-bottom: 0.5rem;
+}
+
+.product-text ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.product-text ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.product-text ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-green);
+}
+
+/* Responsive styles for the product page */
+@media (max-width: 768px) {
+    .product-detail-layout,
+    .product-detail-layout.reverse-layout {
+        grid-template-columns: 1fr;
+    }
+    .product-detail-layout.reverse-layout > .product-text,
+    .product-detail-layout.reverse-layout > .product-image {
+        order: initial; /* Resets the order on mobile */
+    }
+}
+
+/* --- Calendar Page Specific Styles --- */
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr); /* 1 column for names, 12 for months */
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* This makes the corners rounded */
+}
+
+/* Styling for all cells */
+.calendar-grid > div {
+    padding: 12px 8px;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+/* Remove border from the very first cell */
+.calendar-grid > div:first-child {
+    border-left: none;
+}
+/* Remove bottom border from the last row of cells */
+.calendar-grid > div:nth-last-child(-n+13) {
+    border-bottom: none;
+}
+
+/* Header styles */
+.month, .product-name.header {
+    background-color: var(--background-beige);
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+
+.product-name {
+    grid-column: 1 / 2; /* Make this cell span the first column */
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Month content cells */
+.cell {
+    min-height: 40px;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.cell.available-melon {
+    background-image: url('../images/melon-icon.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* This will display the wintermelon icon */
+.cell.available-wintermelon {
+    background-image: url('../images/wintermelon-icon.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* This will display the pepper icon */
+.cell.available-pepper {
+    background-image: url('../images/peppers-icon.png'); /* Corrected to plural "peppers" */
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.cell.unavailable {
+    background-color: #f5f5f5; /* A light grey */
+}
+
+
+/* --- Responsive Calendar for Mobile --- */
+@media (max-width: 992px) {
+    .calendar-grid {
+        display: block; /* Ditch the grid and stack everything */
+        border: none;
+    }
+    
+    /* Hide the month headers on mobile */
+    .calendar-grid .month {
+        display: none;
+    }
+
+    /* Hide the top-left header cell */
+    .calendar-grid .product-name.header {
+        display: none;
+    }
+
+    .product-name {
+        grid-column: auto; /* Reset grid column */
+        background-color: var(--primary-green);
+        color: #fff;
+        padding: 15px;
+        border-radius: 8px 8px 0 0;
+        border-bottom: none;
+        border-left: none;
+        margin-top: 20px;
+    }
+    
+    .cell {
+        display: inline-block; /* Allow cells to form a row */
+        width: calc(100% / 6); /* Show 6 months per row */
+        border-top: 1px solid #ddd;
+    }
+
+    /* Make the mobile cells have a bottom border */
+    .calendar-grid > div:nth-last-child(-n+13) {
+        border-bottom: 1px solid #ddd;
+    }
+    /* ...except for the last 6 */
+    .calendar-grid > div:nth-last-child(-n+6) {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .cell {
+        width: calc(100% / 4); /* Show 4 months per row on small screens */
+    }
+}
+
+/* --- Health Benefits Page Specific Styles --- */
+
+.tagline {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--primary-green);
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+.disclaimer-box {
+    background-color: var(--background-beige);
+    border-left: 5px solid var(--accent-yellow);
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.disclaimer-box p {
+    margin-bottom: 0;
+}
+
+/* --- Recipes Page Grid and Modals --- */
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.recipe-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.recipe-card .card-content {
+    padding: 15px;
+}
+
+.recipe-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+/* Modal Styles */
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1000;
+    display: none; /* Hidden by default */
+}
+
+#modal-overlay.active {
+    display: block;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    z-index: 1001;
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: none; /* Hidden by default */
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.close-btn {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    line-height: 1;
+}
+.close-btn:hover {
+    color: #000;
+}
+
+.modal-body {
+    padding: 25px;
+}
+.modal-body img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.modal-body h3 {
+    margin-top: 20px;
+}
+.modal-body ul {
+    list-style-position: inside;
+}
+
+
+/* Responsive Grid */
+@media (max-width: 992px) {
+    .recipe-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    .recipe-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Location Page Specific Styles --- */
+
+.map-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* Creates a 4:3 aspect ratio for the map */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.gps-box {
+    background-color: var(--background-beige);
+    border-left: 5px solid var(--accent-yellow);
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 2rem;
+}
+
+.gps-box h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.gps-box p {
+    margin-bottom: 0;
+    font-family: monospace; /* Gives a technical look */
+    font-size: 1.1rem;
+}
+
+/* --- Contact Page Specific Styles --- */
+
+.contact-group {
+    margin-top: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--background-beige);
+}
+
+/* Removes the border from the last group */
+.contact-group:last-of-type {
+    border-bottom: none;
+}
+
+.contact-group h3 {
+    margin-bottom: 0.5rem;
+}
+
+.contact-group p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-group a {
+    text-decoration: none;
+    color: var(--primary-green);
+    font-weight: bold;
+}
+
+.contact-group a:hover {
+    text-decoration: underline;
+    color: var(--accent-yellow);
+}
+
+/* --- Gallery Page Styles --- */
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    min-height: 700px; /* Adjust as needed */
+    margin-top: 50px;
+}
+
+.gallery-photo {
+    position: absolute;
+    width: 300px; /* Adjust size of photos */
+    border: 10px solid #fff;
+    border-radius: 3px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.4s ease, z-index 0.4s ease;
+}
+
+/* Individual positions for each photo */
+.gallery-photo:nth-child(1) {
+    top: 50px;
+    left: 10%;
+    transform: rotate(-10deg);
+    z-index: 1;
+}
+.gallery-photo:nth-child(2) {
+    top: 100px;
+    left: 30%;
+    transform: rotate(5deg);
+    z-index: 2;
+}
+.gallery-photo:nth-child(3) {
+    top: 60px;
+    left: 55%;
+    transform: rotate(-5deg);
+    z-index: 3;
+}
+.gallery-photo:nth-child(4) {
+    top: 120px;
+    left: 70%;
+    transform: rotate(12deg);
+    z-index: 4;
+}
+.gallery-photo:nth-child(5) {
+    top: 150px;
+    left: 20%;
+    transform: rotate(-15deg);
+    z-index: 5;
+}
+.gallery-photo:nth-child(6) {
+    top: 160px;
+    left: 45%;
+    transform: rotate(8deg);
+    z-index: 6;
+}
+
+.gallery-box {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    z-index: 10; /* Ensures the box is in front of the bottom of the photos */
+}
+
+/* Active state when a photo is clicked */
+.gallery-photo.active {
+    transform: rotate(0deg) scale(1.5) translate(10%, -10%);
+    z-index: 100;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* --- Responsive Gallery for Mobile --- */
+@media (max-width: 992px) {
+    /* On smaller screens, switch to a simple grid */
+    .gallery-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        min-height: auto; /* Reset min-height */
+        margin-top: 0;
+    }
+
+    /* Reset all the desktop-specific styles */
+    .gallery-photo {
+        position: static;
+        width: 100%;
+        transform: none;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    .gallery-photo.active {
+        transform: scale(1.05); /* A more subtle effect on mobile */
+    }
+
+    .gallery-box {
+        display: none; /* Hide the box on mobile as the gimmick doesn't work */
+    }
+}
+@media (max-width: 480px) {
+    .gallery-container {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+}
