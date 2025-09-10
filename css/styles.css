@@ -66,7 +66,7 @@ img {
     display: block;
 }
 
-.navbar nav ul {
+.navbar nav > ul {
     list-style: none;
     display: flex;
     align-items: center; /* Vertically aligns nav items */
@@ -117,6 +117,7 @@ li.dropdown:hover > .dropdown-menu {
 
 .dropdown-menu li {
     margin: 0;
+    display: block; /* Ensures items stack vertically */
 }
 
 .dropdown-menu a {
