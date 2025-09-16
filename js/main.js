@@ -39,21 +39,34 @@ if (modalOverlay && recipeCards.length > 0) {
 }
 
 
-// --- INTERACTIVE GALLERY CODE ---
-const galleryPhotos = document.querySelectorAll('.gallery-photo');
+// --- INTERACTIVE GALLERY LIGHTBOX CODE ---
+const galleryItems = document.querySelectorAll('.gallery-item');
+const lightboxOverlay = document.getElementById('lightbox-overlay');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
 
-// Now, check if we are on a page that has a gallery
-if (galleryPhotos.length > 0) {
-    galleryPhotos.forEach(photo => {
-        photo.addEventListener('click', () => {
-            // First, remove 'active' class from any other photo
-            galleryPhotos.forEach(p => {
-                if (p !== photo) {
-                    p.classList.remove('active');
-                }
-            });
-            // Then, toggle the 'active' class on the clicked photo
-            photo.classList.toggle('active');
+// Check if we are on a page with a gallery
+if (galleryItems.length > 0) {
+    galleryItems.forEach(item => {
+        item.addEventListener('click', e => {
+            e.preventDefault(); // Prevents the link from navigating away
+            const imageUrl = item.getAttribute('href');
+            lightboxImage.setAttribute('src', imageUrl);
+            lightboxOverlay.style.display = 'flex';
         });
+    });
+
+    // Function to close the lightbox
+    const closeLightbox = () => {
+        lightboxOverlay.style.display = 'none';
+    };
+
+    // Close by clicking the button or the overlay
+    lightboxCloseBtn.addEventListener('click', closeLightbox);
+    lightboxOverlay.addEventListener('click', e => {
+        // Only close if the dark overlay itself is clicked, not the image
+        if (e.target === lightboxOverlay) {
+            closeLightbox();
+        }
     });
 }
